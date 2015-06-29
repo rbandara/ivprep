@@ -1,9 +1,13 @@
 package com.ivprep.common;
 
-public class Node<T> {
+public class    Node<T> {
     Node left;
     Node right;
     T t;
+
+    public Node(T t) {
+        this.t = t;
+    }
 
     public Node getLeft() {
         return left;
