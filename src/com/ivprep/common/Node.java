@@ -5,6 +5,10 @@ public class Node<T> {
     Node right;
     T t;
 
+    public Node(T t) {
+        this.t = t;
+    }
+
     public Node getLeft() {
         return left;
     }
