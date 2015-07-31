@@ -1,35 +1,35 @@
 package com.ivprep.common;
 
-public class    Node<T> {
-    Node left;
-    Node right;
-    T t;
+public class Node {
 
-    public Node(T t) {
-        this.t = t;
+    Node next;
+    Integer value;
+
+    public Node(Integer t) {
+        this.value = t;
     }
 
-    public Node getLeft() {
-        return left;
+    public Node getNext() {
+        return next;
     }
 
-    public void setLeft(Node left) {
-        this.left = left;
+    public void setNext(Node next) {
+        this.next = next;
     }
 
-    public Node getRight() {
-        return right;
+    public Integer getValue() {
+        return value;
     }
 
-    public void setRight(Node right) {
-        this.right = right;
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
-    public T getT() {
-        return t;
-    }
-
-    public void setT(T t) {
-        this.t = t;
+    @Override
+    public String toString() {
+        return "Node{" +
+                "next=" + next +
+                ", value=" + value +
+                '}';
     }
 }
