@@ -3,8 +3,18 @@ package com.ivprep.problem;
 /**
  * How do you find an element in two dimensional sorted array?
  * <p/>
- * ex : int[] array = { {1,5,8,9}, {2, 6, 10, 12}, {5,8,13,17}, {7,9,19, 21}, {9, 19, 20, 25} }
- *                      array[0][0]  array[1][0]     array[2][0]  array[3][0]  array[4][0]
+ *
+ *    int[][] array = { {1, 5,  8,  9},
+ *                      {2, 6,  10, 12},
+ *                      {5, 8,  13, 17},
+ *                      {7, 9,  19, 21},
+ *                      {9, 19, 20, 25}
+ *                    }
+ *                      array[0][0],array[0][1],array[0][2],array[0][3]
+ *                      array[1][0],array[1][1],array[1][2],array[1][3]
+ *                      array[2][0]
+ *                      array[3][0]
+ *                      array[4][0]
  * <p/>
  * 1  5  8   9
  * 2  6  10 12
@@ -13,51 +23,57 @@ package com.ivprep.problem;
  * <p/>
  * <p/>
  * }
+ * We call this search SaddleBackSearch
  */
 public class SaddleBackSearch {
 
 
+    // we can start from an upper right or lower left corner and walk in
+    //
     static void find(int[][] arr, int x) {
-        int startI = 0;
-        int startJ = 3;
+        int i = 0;
+        int j = 3;
 
-        int start = arr[startI][startJ];
+        int start = arr[i][j];
+
+        if(x==start)
+            System.out.println("Found the value at " + i + "," + j);
 
         while (x != start) {
 
-            start = arr[startI][startJ];
+            start = arr[i][j];
             System.out.println(start);
 
             if (x > start) {
-                startI++;
+                i++;
             } else if (x < start) {
-                startJ--;
+                j--;
             } else {
-                System.out.println("Found the value at " + startI + "," + startJ);
+                System.out.println("Found the value at " + i + "," + j);
             }
         }
 
     }
 
     static void findAllowDups(int[][] arr, int x) {
-        int startI = 0;
-        int startJ = 3;
+        int i = 0;
+        int j = 3;
 
-        int start = arr[startI][startJ];
+        int start = arr[i][j];
 
-        while (startI != arr.length && startJ != 0) {
+        while (i != arr.length && j != 0) {
 
-            start = arr[startI][startJ];
+            start = arr[i][j];
             System.out.println(start);
 
             if (x > start) {
-                startI++;
+                i++;
             } else if (x < start) {
-                startJ--;
+                j--;
             } else {
-                System.out.println("Found the value at " + startI + "," + startJ);
-                startI++;
-                startJ--;
+                System.out.println("Found the value at " + i + "," + j);
+                i++;
+                j--;
             }
         }
 
